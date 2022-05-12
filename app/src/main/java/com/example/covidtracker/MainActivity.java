@@ -10,8 +10,6 @@ import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -46,33 +44,25 @@ public class MainActivity extends AppCompatActivity {
         String url = "https://corona.lmao.ninja/v2/all/";
 
         StringRequest request = new StringRequest(Request.Method.GET, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
+                response -> {
 
-                        try {
-                            JSONObject jsonObject = new JSONObject(response.toString());
+                    try {
+                        JSONObject jsonObject = new JSONObject(response);
 
-                            tvCases.setText(jsonObject.getString("cases"));
-                            tvRecovered.setText(jsonObject.getString("recovered"));
-                            tvCritical.setText(jsonObject.getString("critical"));
-                            tvActive.setText(jsonObject.getString("active"));
-                            tvTodayCases.setText(jsonObject.getString("todayCases"));
-                            tvTotalDeaths.setText(jsonObject.getString("deaths"));
-                            tvTodayDeaths.setText(jsonObject.getString("todayDeaths"));
-                            tvAffectedCountries.setText(jsonObject.getString("affectedCountries"));
+                        tvCases.setText(jsonObject.getString("cases"));
+                        tvRecovered.setText(jsonObject.getString("recovered"));
+                        tvCritical.setText(jsonObject.getString("critical"));
+                        tvActive.setText(jsonObject.getString("active"));
+                        tvTodayCases.setText(jsonObject.getString("todayCases"));
+                        tvTotalDeaths.setText(jsonObject.getString("deaths"));
+                        tvTodayDeaths.setText(jsonObject.getString("todayDeaths"));
+                        tvAffectedCountries.setText(jsonObject.getString("affectedCountries"));
 
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
+
+                }, error -> Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show());
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(request);
