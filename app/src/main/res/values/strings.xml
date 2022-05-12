@@ -14,4 +14,8 @@
     <string name="today_cases">Today Cases</string>
     <string name="total_deaths">Total Deaths</string>
     <string name="today_deaths">Today Deaths</string>
+    <string name="search">Search</string>
+    <string name="country_name">Country Name</string>
+    <string name="flag">Flag</string>
+    <string name="country">Country</string>
 </resources>
