@@ -9,10 +9,8 @@
     <string name="global_stats">Global Stats</string>
     <string name="cases">Cases</string>
     <string name="_0">0</string>
-    <string name="recovered">Recovered</string>
     <string name="affected_countries">Affected Countries</string>
     <string name="critical">Critical</string>
-    <string name="active">Active</string>
     <string name="today_cases">Today Cases</string>
     <string name="total_deaths">Total Deaths</string>
     <string name="today_deaths">Today Deaths</string>

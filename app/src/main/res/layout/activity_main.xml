@@ -116,7 +116,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-light"
+                            android:fontFamily="sans-serif-condensed-light"
                             android:text="@string/recovered"
                             android:textSize="18sp"/>
                         <TextView
@@ -128,7 +128,7 @@
                             android:textSize="18sp"
                             android:textColor="@color/color_one"
                             android:textStyle="bold"
-                            android:fontFamily="sans-serif-light"
+                            android:fontFamily="sans-serif-condensed-light"
                             android:layout_alignParentEnd="true"/>
 
                     </RelativeLayout>
@@ -152,7 +152,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-light"
+                            android:fontFamily="sans-serif-condensed-light"
                             android:text="@string/critical"
                             android:textSize="18sp"/>
                         <TextView
@@ -162,10 +162,9 @@
                             android:id="@+id/tvCritical"
                             android:textAlignment="textEnd"
                             android:textSize="18sp"
-
                             android:textColor="@color/color_one"
                             android:textStyle="bold"
-                            android:fontFamily="sans-serif-light"
+                            android:fontFamily="sans-serif-condensed-light"
                             android:layout_alignParentEnd="true"/>
 
                     </RelativeLayout>
@@ -189,7 +188,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-light"
+                            android:fontFamily="sans-serif-condensed-light"
                             android:text="@string/active"
                             android:textSize="18sp"/>
                         <TextView
@@ -199,10 +198,9 @@
                             android:id="@+id/tvActive"
                             android:textAlignment="textEnd"
                             android:textSize="18sp"
-
                             android:textColor="@color/color_one"
                             android:textStyle="bold"
-                            android:fontFamily="sans-serif-light"
+                            android:fontFamily="sans-serif-condensed-light"
                             android:layout_alignParentEnd="true"/>
 
                     </RelativeLayout>
@@ -226,7 +224,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-light"
+                            android:fontFamily="sans-serif-condensed-light"
                             android:text="@string/today_cases"
                             android:textSize="18sp"/>
                         <TextView
@@ -236,10 +234,9 @@
                             android:id="@+id/tvTodayCases"
                             android:textAlignment="textEnd"
                             android:textSize="18sp"
-
                             android:textColor="@color/color_one"
                             android:textStyle="bold"
-                            android:fontFamily="sans-serif-light"
+                            android:fontFamily="sans-serif-condensed-light"
                             android:layout_alignParentEnd="true"/>
 
                     </RelativeLayout>
@@ -263,7 +260,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-light"
+                            android:fontFamily="sans-serif-condensed-light"
                             android:text="@string/total_deaths"
                             android:textSize="18sp"/>
                         <TextView
@@ -273,10 +270,9 @@
                             android:id="@+id/tvTotalDeaths"
                             android:textAlignment="textEnd"
                             android:textSize="18sp"
-
                             android:textColor="@color/color_one"
                             android:textStyle="bold"
-                            android:fontFamily="sans-serif-light"
+                            android:fontFamily="sans-serif-condensed-light"
                             android:layout_alignParentEnd="true"/>
 
                     </RelativeLayout>
@@ -300,7 +296,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-light"
+                            android:fontFamily="sans-serif-condensed-light"
                             android:text="@string/today_deaths"
                             android:textSize="18sp"/>
                         <TextView
@@ -310,10 +306,9 @@
                             android:id="@+id/tvTodayDeaths"
                             android:textAlignment="textEnd"
                             android:textSize="18sp"
-
                             android:textColor="@color/color_one"
                             android:textStyle="bold"
-                            android:fontFamily="sans-serif-light"
+                            android:fontFamily="sans-serif-condensed-light"
                             android:layout_alignParentEnd="true"/>
 
                     </RelativeLayout>
@@ -337,7 +332,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-light"
+                            android:fontFamily="sans-serif-condensed-light"
                             android:text="@string/affected_countries"
                             android:textSize="18sp"/>
                         <TextView
@@ -349,7 +344,7 @@
                             android:textSize="18sp"
                             android:textColor="@color/color_one"
                             android:textStyle="bold"
-                            android:fontFamily="sans-serif-light"
+                            android:fontFamily="sans-serif-condensed-light"
                             android:layout_alignParentEnd="true"/>
 
                     </RelativeLayout>
