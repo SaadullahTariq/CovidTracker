@@ -1,10 +1,9 @@
 package com.example.covidtracker;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,29 +17,34 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
+
 
 public class DetailActivity extends AppCompatActivity {
 
+    ListView listView;
     TextView tvdetailcases, tvdetailrecovered, tvdetaildeaths;
-    RecyclerView stateRV;
+
+    public static List<StateModel> stateModelList = new ArrayList<>();
     StateModel stateModel;
-    StateRVAdapter stateRVAdapter;
-    ArrayList<StateModel> stateList = new ArrayList<>();
+    MyCustomAdapter myCustomAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
+        listView = findViewById(R.id.listView);
         tvdetailcases = findViewById(R.id.tvdetailcases);
         tvdetailrecovered = findViewById(R.id.tvdetailrecovered);
         tvdetaildeaths = findViewById(R.id.tvdetaildeaths);
-        stateRV = findViewById(R.id.RVStates);
-        stateInfo();
 
-    }
+        stateInfo();
+}
 
     private void stateInfo() {
+
         String url = "https://api.rootnet.in/covid19-in/stats/latest/";
 
         StringRequest request = new StringRequest(Request.Method.GET, url,
@@ -51,26 +55,30 @@ public class DetailActivity extends AppCompatActivity {
 
                         JSONObject dataObj = jsonObject.getJSONObject("data");
                         JSONObject summaryObj = dataObj.getJSONObject("summary");
+                        JSONArray jsonArray = dataObj.getJSONArray("regional");
 
                         tvdetailcases.setText(summaryObj.getString("total"));
                         tvdetailrecovered.setText(summaryObj.getString("discharged"));
                         tvdetaildeaths.setText(summaryObj.getString("deaths"));
 
-                        JSONArray regionalArray = dataObj.getJSONArray("regional");
-                        for (int i=0;i<regionalArray.length();i++){
+                        for (int i=0;i<jsonArray.length();i++){
 
-                            JSONObject regionalObj = regionalArray.getJSONObject(i);
-                            String stateName = regionalObj.getString("loc");
-                            int cases = regionalObj.getInt("totalConfirmed");
-                            int recovered = regionalObj.getInt("discharged");
-                            int deaths = regionalObj.getInt("deaths");
-                            stateModel = new StateModel(stateName, recovered, deaths, cases);
-                            stateList.add(stateModel);
+                            JSONObject regionalObj = jsonArray.getJSONObject(i);
+
+                            String state = regionalObj.getString("loc");
+                            String active = regionalObj.getString("totalConfirmed");
+                            String recovered = regionalObj.getString("discharged");
+                            String deaths = regionalObj.getString("deaths");
+
+                            stateModel = new StateModel(state,active,recovered,deaths);
+                            stateModelList.add(stateModel);
 
                         }
 
-                        stateRVAdapter = new StateRVAdapter(DetailActivity.this, stateList);
-                        stateRV.setAdapter(stateRVAdapter);
+                        myCustomAdapter = new MyCustomAdapter(DetailActivity.this, stateModelList);
+                        listView.setAdapter(myCustomAdapter);
+
+
 
 
 
@@ -82,6 +90,7 @@ public class DetailActivity extends AppCompatActivity {
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(request);
+
     }
 
 }

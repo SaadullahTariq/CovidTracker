@@ -1,20 +1,16 @@
 package com.example.covidtracker;
 
 public class StateModel {
-
-    private String state;
-    private int recovered;
-    private int deaths;
-    private int cases;
+    String state, active, recovered, deaths;
 
     public StateModel() {
     }
 
-    public StateModel(String state, int recovered, int deaths, int cases) {
+    public StateModel(String state, String active, String recovered, String deaths) {
         this.state = state;
+        this.active = active;
         this.recovered = recovered;
         this.deaths = deaths;
-        this.cases = cases;
     }
 
     public String getState() {
@@ -25,27 +21,27 @@ public class StateModel {
         this.state = state;
     }
 
-    public int getRecovered() {
+    public String getActive() {
+        return active;
+    }
+
+    public void setActive(String active) {
+        this.active = active;
+    }
+
+    public String getRecovered() {
         return recovered;
     }
 
-    public void setRecovered(int recovered) {
+    public void setRecovered(String recovered) {
         this.recovered = recovered;
     }
 
-    public int getDeaths() {
+    public String getDeaths() {
         return deaths;
     }
 
-    public void setDeaths(int deaths) {
+    public void setDeaths(String deaths) {
         this.deaths = deaths;
-    }
-
-    public int getCases() {
-        return cases;
-    }
-
-    public void setCases(int cases) {
-        this.cases = cases;
     }
 }

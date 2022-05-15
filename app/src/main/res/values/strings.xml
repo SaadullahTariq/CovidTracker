@@ -2,12 +2,9 @@
     <string name="app_name">CovidTracker</string>
     <string name="track_countries">Track Indian District</string>
     <string name="total_cases">Total Cases</string>
-    <string name="recovered">Recovered</string>
-    <string name="deaths">Deaths</string>
     <string name="active">Active</string>
     <string name="lets_grow_more_png">Lets Grow More PNG</string>
     <string name="global_stats">Global Stats</string>
-    <string name="cases">Cases</string>
     <string name="_0">0</string>
     <string name="affected_countries">Affected Countries</string>
     <string name="critical">Critical</string>
@@ -19,4 +16,13 @@
     <string name="flag">Flag</string>
     <string name="country">Country</string>
     <string name="corona_tracker">Corona Tracker</string>
+    <string name="total_cases_in_india">Total Cases in India</string>
+    <string name="number_of_cases">Number of Cases</string>
+    <string name="number_of_deaths">Number of Deaths</string>
+    <string name="state_name">State Name</string>
+    <string name="cases">Cases</string>
+    <string name="recovered">Recovered</string>
+    <string name="number_of_recovered">Number of Recovered</string>
+    <string name="deaths">Deaths</string>
+    <string name="district">District</string>
 </resources>
