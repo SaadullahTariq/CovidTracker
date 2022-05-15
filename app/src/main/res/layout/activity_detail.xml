@@ -137,8 +137,8 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RVStates"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/RVStates"/>
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

@@ -16,8 +16,9 @@ public class StateRVAdapter extends RecyclerView.Adapter<StateRVAdapter.MyViewHo
     Context context;
     ArrayList<StateModel> stateModels;
 
-    public StateRVAdapter(Context context) {
+    public StateRVAdapter(Context context, ArrayList<StateModel> stateModels) {
         this.context = context;
+        this.stateModels = stateModels;
     }
 
     @NonNull
@@ -31,6 +32,7 @@ public class StateRVAdapter extends RecyclerView.Adapter<StateRVAdapter.MyViewHo
     @Override
     public void onBindViewHolder(@NonNull StateRVAdapter.MyViewHolder holder, int position) {
 
+
         holder.tvstatecases.setText(stateModels.get(position).getCases());
         holder.tvstaterecovered.setText(stateModels.get(position).getRecovered());
         holder.tvstatedeaths.setText(stateModels.get(position).getDeaths());
@@ -40,6 +42,7 @@ public class StateRVAdapter extends RecyclerView.Adapter<StateRVAdapter.MyViewHo
 
     @Override
     public int getItemCount() {
+
         return stateModels.size();
     }
 
