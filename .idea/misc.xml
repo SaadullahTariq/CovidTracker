@@ -5,9 +5,11 @@
       <map>
         <entry key="..\:/Android Projects/LGM_Internship/CovidTracker/app/src/main/res/drawable/edittextshadow.xml" value="0.1" />
         <entry key="..\:/Android Projects/LGM_Internship/CovidTracker/app/src/main/res/layout/activity_affected_countries.xml" value="0.67" />
-        <entry key="..\:/Android Projects/LGM_Internship/CovidTracker/app/src/main/res/layout/activity_detail.xml" value="0.33" />
-        <entry key="..\:/Android Projects/LGM_Internship/CovidTracker/app/src/main/res/layout/activity_main.xml" value="0.17083333333333334" />
-        <entry key="..\:/Android Projects/LGM_Internship/CovidTracker/app/src/main/res/layout/list_custom_item.xml" value="0.1" />
+        <entry key="..\:/Android Projects/LGM_Internship/CovidTracker/app/src/main/res/layout/activity_detail.xml" value="0.6587202007528231" />
+        <entry key="..\:/Android Projects/LGM_Internship/CovidTracker/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Android Projects/LGM_Internship/CovidTracker/app/src/main/res/layout/activity_welcome.xml" value="0.5" />
+        <entry key="..\:/Android Projects/LGM_Internship/CovidTracker/app/src/main/res/layout/list_custom_item.xml" value="0.2" />
+        <entry key="..\:/Android Projects/LGM_Internship/CovidTracker/app/src/main/res/layout/state_rv_item.xml" value="0.15" />
       </map>
     </option>
   </component>

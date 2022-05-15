@@ -1,55 +1,66 @@
 package com.example.covidtracker;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class DetailActivity extends AppCompatActivity {
 
-    int positionCountry;
-    TextView tvCountry,tvCases,tvRecovered,tvCritical,tvActive,tvTodayCases,tvTotalDeaths,tvTodayDeaths;
+    TextView tvdetailcases, tvdetailrecovered, tvdetaildeaths;
+    RecyclerView stateRV;
+    StateRVAdapter stateRVAdapter;
+    ArrayList<StateModel> stateList = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        Intent intent = getIntent();
-        positionCountry = intent.getIntExtra("position",0);
-
-        getSupportActionBar().setTitle("Details of "+AffectedCountries.countryModelsList.get(positionCountry).getCountry());
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-
-
-        tvCountry = findViewById(R.id.tvCountry);
-        tvCases = findViewById(R.id.tvCases);
-        tvRecovered = findViewById(R.id.tvRecovered);
-        tvCritical = findViewById(R.id.tvCritical);
-        tvActive = findViewById(R.id.tvActive);
-        tvTodayCases = findViewById(R.id.tvTodayCases);
-        tvTotalDeaths = findViewById(R.id.tvDeaths);
-        tvTodayDeaths = findViewById(R.id.tvTodayDeaths);
-
-        tvCountry.setText(AffectedCountries.countryModelsList.get(positionCountry).getCountry());
-        tvCases.setText(AffectedCountries.countryModelsList.get(positionCountry).getCases());
-        tvRecovered.setText(AffectedCountries.countryModelsList.get(positionCountry).getRecovered());
-        tvCritical.setText(AffectedCountries.countryModelsList.get(positionCountry).getCrictical());
-        tvActive.setText(AffectedCountries.countryModelsList.get(positionCountry).getActive());
-        tvTodayCases.setText(AffectedCountries.countryModelsList.get(positionCountry).getTodaycases());
-        tvTotalDeaths.setText(AffectedCountries.countryModelsList.get(positionCountry).getDeaths());
-        tvTodayDeaths.setText(AffectedCountries.countryModelsList.get(positionCountry).getTodayDeaths());
-
+        tvdetailcases = findViewById(R.id.tvdetailcases);
+        tvdetailrecovered = findViewById(R.id.tvdetailrecovered);
+        tvdetaildeaths = findViewById(R.id.tvdetaildeaths);
+        stateRV = findViewById(R.id.RVStates);
+        stateInfo();
 
     }
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId()==android.R.id.home)
-            finish();
-        return super.onOptionsItemSelected(item);
+
+    private void stateInfo() {
+        String url = "https://api.rootnet.in/covid19-in/stats/latest";
+
+        StringRequest request = new StringRequest(Request.Method.GET, url,
+                response -> {
+
+                    try {
+                        JSONObject jsonObject = new JSONObject(response);
+
+                        JSONObject dataObj = jsonObject.getJSONObject("data");
+                        JSONObject summaryObj = dataObj.getJSONObject("summary");
+
+                        tvdetailcases.setText(summaryObj.getString("total"));
+                        tvdetailrecovered.setText(summaryObj.getString("discharged"));
+                        tvdetaildeaths.setText(summaryObj.getString("deaths"));
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }, error -> Toast.makeText(DetailActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show());
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(request);
     }
+
 }

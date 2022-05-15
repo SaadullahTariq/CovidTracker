@@ -4,8 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
+import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,7 +13,6 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.bumptech.glide.Glide;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView tvCases, tvRecovered, tvCritical, tvActive, tvTodayCases, tvTotalDeaths, tvTodayDeaths, tvAffectedCountries;
     ScrollView scrollView;
+    Button btnTrack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,11 +35,16 @@ public class MainActivity extends AppCompatActivity {
         tvTotalDeaths = findViewById(R.id.tvTotalDeaths);
         tvTodayDeaths = findViewById(R.id.tvTodayDeaths);
         tvAffectedCountries = findViewById(R.id.tvAffectedCountries);
+        btnTrack = findViewById(R.id.btnTrack);
 
         scrollView = findViewById(R.id.scrollStats);
 
         fetchData();
+
+        btnTrack.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, DetailActivity.class)));
+
     }
+
 
     private void fetchData() {
 
@@ -72,7 +76,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void goTrackCountries(View view) {
-        startActivity(new Intent(getApplicationContext(),AffectedCountries.class));
-    }
 }

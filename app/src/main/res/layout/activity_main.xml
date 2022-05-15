@@ -376,6 +376,5 @@
         android:text="@string/track_countries"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        android:padding="5dp"
-        android:onClick="goTrackCountries"/>
+        android:padding="5dp" />
 </RelativeLayout>
