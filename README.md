@@ -2,16 +2,19 @@ Task 1 : Create a COVID-19 Tracker Android App to See Details.
 
 Approach
 Step 1: Create a new project
+
 Step 2: Now add some files before writing Java and XML code
 ● Go to Gradle Scripts -> build.gradle (Module: app) section and import the
 following dependencies and click the “Sync Now” button to Sync the APP.
 ● To Learn More About Volley Library Click Here.
 
 implementation ‘com.android.volley:volley:1.1.1’
+
 Step 3: Use JSON Parsing to fetch data from the website
 ● Click on this URL- https://api.covid19india.org/state_district_wise.json
 ● It will Show Data of the whole Country and in this, We Are Going to fetch data
 from here Only.
+
 Step 4: Design the Layout of the activity_main.xml
 1. Go to app -> res -> layout -> activity_main.xml
 2. Add A TextView To the layout: To display LGM at the top of the screen.
